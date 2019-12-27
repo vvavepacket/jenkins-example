@@ -1,18 +1,18 @@
 node('jenkins-slave') {
     stage ('Compile Stage') {
-        withMaven(maven : 'maven_3_5_0') {
-            sh 'mvn clean compile'
+        container('maven') {
+            sh 'mvn -B clean install'
         }
     }
 
     stage ('Testing Stage') {
-        withMaven(maven : 'maven_3_5_0') {
+        container('maven') {
             sh 'mvn test'
         }
     }
     
     stage ('Deployment Stage') {
-        withMaven(maven : 'maven_3_5_0') {
+        container('maven') {
             sh 'mvn deploy'
         }
     }
