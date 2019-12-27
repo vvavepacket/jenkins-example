@@ -12,9 +12,5 @@ node('jenkins-slave') {
         }
     }
     
-    stage ('Deployment Stage') {
-        container('maven') {
-            sh 'mvn deploy'
-        }
-    }
+
 }
