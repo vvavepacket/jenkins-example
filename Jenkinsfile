@@ -1,7 +1,7 @@
 node('jenkins-slave') {
     stage ('Compile Stage') {
         container('maven') {
-            sh 'mvn -B clean install'
+            sh 'mvn clean compile'
         }
     }
 
