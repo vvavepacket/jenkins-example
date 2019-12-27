@@ -1,5 +1,6 @@
 node('jenkins-slave') {
     stage ('Compile Stage') {
+        git 'https://github.com/jenkinsci/kubernetes-plugin.git'
         container('maven') {
             sh 'mvn clean compile'
         }
